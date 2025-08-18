@@ -40,5 +40,26 @@ Tune thresholds and control logic for different driving scenarios.
 
 Create polished documentation and visuals for portfolio presentation.
 
+Update: 18-08-2025
+
+Status: functional end-to-end, controller overshoot under step changes. refining model need to be done.
+
+
+Current Functionality:
+- Sensor Subsystem: rain intensity, wheel speed, and steering angle simulation with noise injection.
+- Safety Manager: computes a maximum safe vehicle speed based on conditions.
+- Speed Governor: enforces the lower of driver command or safe limit.
+- PI Controller + Plant: basic vehicle speed response simulation.
+
+Known Issues:
+- Overshoot present in the PI response.
+
+Next Steps:
+- Refine controller to reduce overshoot.
+
+
+
+
+
 MATLAB Version
 Tested in MATLAB R2024
