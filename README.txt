@@ -47,7 +47,7 @@ Status: functional end-to-end, controller overshoot under step changes. refining
 
 Current Functionality:
 - Sensor Subsystem: rain intensity, wheel speed, and steering angle simulation with noise injection.
-![Sensor Outputs](scope_outputs/Sensor_outputs.png)
+![Sensor Outputs](https://github.com/vamsi161/Vehical_Safety_Control/blob/main/scope_outputs/Sensor_outputs.png)
 - Safety Manager: computes a maximum safe vehicle speed based on conditions.
 - Speed Governor: enforces the lower of driver command or safe limit.
 - PI Controller + Plant: basic vehicle speed response simulation.
