@@ -19,13 +19,12 @@ Adjusts the safe maximum speed (`Vmax_kph`) based on rain intensity.
 
 ### 3. Speed Governor
 Ensures the commanded reference speed never exceeds the safe limit.  
-[View Model](Model_Snaps/SpeedGoverner.pdf)
 
 ### 4. PI Controller
 Regulates actual speed (`V_kph`) to follow the reference speed (`Vref_kph`).  
 Currently showing overshoot (further tuning required).  
-![Overshoot Issue](scope_outputs/overshooting_issue.png)
-
+![Overshoot Issue](scope_outputs/oershooting_issue.png)
+[View Model](Model_Snaps/PI_Controller.pdf.pdf)
 ---
 
 ## Complete Model
