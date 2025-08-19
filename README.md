@@ -24,7 +24,7 @@ Ensures the commanded reference speed never exceeds the safe limit.
 Regulates actual speed (`V_kph`) to follow the reference speed (`Vref_kph`).  
 Currently showing overshoot (further tuning required).  
 ![Overshoot Issue](scope_outputs/oershooting_issue.png)
-[View Model](Model_Snaps/PI_Controller.pdf.pdf)
+[View Model](Model_Snaps/PI_Controller.pdf)
 ---
 
 ## Complete Model
