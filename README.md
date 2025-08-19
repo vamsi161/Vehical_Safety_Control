@@ -1,64 +1,52 @@
-# Multi-Sensor Vehicle Safety Control – Current Build
+# Vehicle Safety Control – Simulink Model
 
+## Overview
+This project implements a vehicle safety control system in Simulink.  
+It models environmental effects (rain), vehicle dynamics (wheel speed), and applies safety strategies (speed limits and governors) to ensure safe operation under varying conditions.
 
-Multi-Sensor Vehicle Safety Control – Current Build
+---
 
-This MATLAB/Simulink project models a simplified vehicle safety system that integrates environmental and vehicle dynamics sensing with decision-making logic to enhance safety under adverse conditions.
+## System Architecture
+The complete system integrates four main subsystems:
 
-Overview
-The system consists of:
+### 1. Sensor Hub
+Simulates rain, wheel speed, and steering inputs.  
+![Sensor Hub](scope_outputs/Sensor_outputs.png)
 
-Sensing Stage
+### 2. Safety Manager
+Adjusts the safe maximum speed (`Vmax_kph`) based on rain intensity.  
+![Safety Manager](scope_outputs/Safety_manager_output.png)
 
-Simulates rain intensity with realistic profiles and noise.
+### 3. Speed Governor
+Ensures the commanded reference speed never exceeds the safe limit.  
+[View Model](Model_Snaps/SpeedGoverner.pdf)
 
-Generates wheel speed signals from a base speed source with optional noise.
+### 4. PI Controller
+Regulates actual speed (`V_kph`) to follow the reference speed (`Vref_kph`).  
+Currently showing overshoot (further tuning required).  
+![Overshoot Issue](scope_outputs/overshooting_issue.png)
 
-Simulates steering angle variations with optional noise. These signals emulate real sensor outputs and provide input to the safety logic.
+---
 
-Safety Manager Stage
+## Complete Model
+Overall system block diagram:  
+![Complete Model](Model_Snaps/completeModel.png)
 
-Monitors the sensor inputs in real time.
+---
 
-Evaluates driving conditions and potential risks.
+## Current Status
+- Sensor subsystem implemented and tested  
+- Safety manager working with adaptive speed adjustment  
+- Speed governor integrated and functional  
+- PI controller implemented but requires tuning (overshooting observed)  
+- Next step: add actuator dynamics and refine controller
 
-Issues control signals to adjust vehicle behavior such as reducing speed in heavy rain or during sharp steering.
+---
 
-Current Status
-
-All sensor subsystems implemented and tested.
-
-Safety Manager block integrated with sensor outputs.
-
-Output signals validated through simulation plots.
-
-Next Steps
-
-Connect the control signals to a vehicle dynamics plant model for co-simulation.
-
-Tune thresholds and control logic for different driving scenarios.
-
-Create polished documentation and visuals for portfolio presentation.
-
-Update: 18-08-2025
-
-Status: functional end-to-end, controller overshoot under step changes. refining model need to be done.
-
-
-Current Functionality:
-- Sensor Subsystem: rain intensity, wheel speed, and steering angle simulation with noise injection.
-![sensor_output](scope_outputs/Sensor_outputs.png)
-- Safety Manager: computes a maximum safe vehicle speed based on conditions.
-- Speed Governor: enforces the lower of driver command or safe limit.
-- PI Controller + Plant: basic vehicle speed response simulation.
-  ![Partial Output](scope_outputs/partial_output.png)
-
-Known Issues:
-- Overshoot present in the PI response.
-  ![overshoot](scope_outputs/oershooting_issue.png)
-
-Next Steps:
-- Refine controller to reduce overshoot.
+## Repository Contents
+- `Model_Snaps/` → Subsystem diagrams and complete model  
+- `scope_outputs/` → Simulation results (scope captures)  
+- `Vehical_Safety_control.slx` → Main Simulink model
 
 
 
