@@ -55,6 +55,7 @@ Current Functionality:
 
 Known Issues:
 - Overshoot present in the PI response.
+  ![overshoot](scope_outputs/oershooting_issue.png)
 
 Next Steps:
 - Refine controller to reduce overshoot.
