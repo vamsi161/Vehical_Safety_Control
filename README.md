@@ -47,9 +47,38 @@ Overall system block diagram:
 - `scope_outputs/` → Simulation results (scope captures)  
 - `Vehical_Safety_control.slx` → Main Simulink model
 
+19-08-2025: 
+
+1. Implemented Anti-Windup on PI Controller
+- Back-calculation method with Kaw = 1.0.
+- Prevents integrator from raising up during saturation.
+- Stabilized response after braking events.
+
+Integrator windup effect (before):
+
+![Before_AW](scope_outputs/oershooting_issue.png)
+
+With anti-windup enabled:
+
+![After_AW](scope_outputs/After_adding_transfer_function_to_vmax_kph.png)
+
+2. Smoothed Vmax Input
+- Added  filter to prevent fluctuations in vref_kph
 
 
+Unfiltered Vref_kph:
 
+![Before_VmaxFilter](scope_outputs/before_adding%20transfer_function_to_vmax_kph.png)
+
+Filtered Vref_kph:
+
+![After_VmaxFilter](scope_outputs/After_adding_transfer_function_to_vmax_kph.png)
+
+3. Final Controller Output
+- Kp = 0.325, Ki = 0.065, Kaw = 1.0.
+- No runaway oscillations under rain disturbance.
+
+![Final_Run](scope_outputs/tuned_kp_ki_result.png)
 
 MATLAB Version
 Tested in MATLAB R2024
